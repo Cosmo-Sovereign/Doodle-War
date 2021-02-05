@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Doodle_War</string>
+    <string name="title_activity_base">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_war">War</string>
+    <string name="title_search">Search</string>
 </resources>
