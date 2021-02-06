@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Hello"
+        android:textColor="#E42828"
+        android:textSize="40dp"></TextView>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        >-->
+<!--        <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/challenges"-->
+<!--            app:civ_border_color="#000000"-->
+<!--            app:civ_border_width="4dp"-->
+
+<!--            />-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:padding="5dp"-->
+<!--            android:gravity="left"-->
+<!--            android:text="Paras"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20dp"-->
+
+<!--            ></TextView>-->
+<!--    </LinearLayout>-->
+
+</RelativeLayout>
