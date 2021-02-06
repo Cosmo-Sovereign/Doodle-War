@@ -3,6 +3,7 @@ package com.example.doodle_war.ui.home;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,12 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doodle_war.R;
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    String data[];
+import java.util.ArrayList;
 
-    public MyAdapter(String[] data) {
-        this.data = data;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+    ArrayList<DataModel> dataholder;
+
+    public MyAdapter(ArrayList<DataModel> dataholder) {
+        this.dataholder = dataholder;
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -25,20 +29,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.tv.setText(data[position]);
+        holder.propic.setImageResource(dataholder.get(position).getPropic());
+        holder.post.setImageResource(dataholder.get(position).getPost());
+        holder.name.setText(dataholder.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return dataholder.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder
     {
-        TextView tv;
+        ImageView propic,post;
+        TextView name;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tv=itemView.findViewById(R.id.tv);
+            name=itemView.findViewById(R.id.name);
+            propic=itemView.findViewById(R.id.propic);
+            post=itemView.findViewById(R.id.post);
         }
     }
 }
