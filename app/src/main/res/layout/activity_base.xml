@@ -27,7 +27,7 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/challenges"
+                android:src="@drawable/logoinvert"
                 android:layout_weight=".5"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"

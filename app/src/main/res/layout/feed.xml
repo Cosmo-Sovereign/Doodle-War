@@ -38,7 +38,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/post"
-        android:src="@drawable/challenges"
+        android:src="@drawable/logowithback"
         android:layout_below="@+id/ll"/>
 
 </RelativeLayout>

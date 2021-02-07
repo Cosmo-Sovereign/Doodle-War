@@ -20,8 +20,10 @@
         android:layout_marginTop="292dp"
         android:layout_marginEnd="24dp"
         android:background="@color/white"
+        android:textColorHint="@color/black"
         android:drawableLeft="@drawable/ic_action_user"
         android:hint="@string/prompt_email"
+        android:textSize="20dp"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:textColor="@color/black"
@@ -37,8 +39,10 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
         android:background="@color/white"
+        android:textSize="20dp"
         android:textColor="@color/black"
         android:hint="@string/prompt_password"
+        android:textColorHint="@color/black"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:drawableLeft="@drawable/ic_action_lock"
@@ -95,7 +99,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/doodle"
+        app:srcCompat="@drawable/logoinvert"
         tools:ignore="MissingConstraints" />
 
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Doodle_War</string>
+    <string name="app_name">Doodle-War</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -11,6 +11,6 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_base">MainActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_war">War</string>
+    <string name="title_draw">Draw</string>
     <string name="title_search">Search</string>
 </resources>

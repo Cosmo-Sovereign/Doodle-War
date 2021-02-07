@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.doodle_war.ui.war.DashboardFragment"
-        android:label="@string/title_war"
+        android:label="@string/title_draw"
         tools:layout="@layout/fragment_war" />
 
     <fragment
