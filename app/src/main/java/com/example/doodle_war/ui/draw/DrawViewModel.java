@@ -1,14 +1,14 @@
-package com.example.doodle_war.ui.War;
+package com.example.doodle_war.ui.draw;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class WarViewModel extends ViewModel {
+public class DrawViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public WarViewModel() {
+    public DrawViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is War fragment");
     }

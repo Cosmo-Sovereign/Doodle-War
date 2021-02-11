@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.doodle_war.ui.war.DashboardFragment"
+        android:name="com.example.doodle_war.ui.draw.DrawFragment"
         android:label="@string/title_draw"
         tools:layout="@layout/fragment_war" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.doodle_war.ui.search.NotificationsFragment"
+        android:name="com.example.doodle_war.ui.search.SearchFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 </navigation>

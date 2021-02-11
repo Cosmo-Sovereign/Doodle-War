@@ -1,4 +1,4 @@
-package com.example.doodle_war.ui.notifications;
+package com.example.doodle_war.ui.search;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class SearchViewModel extends ViewModel {
 
     public SearchViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is Search fragment");
+        mText.setValue("This is notifications fragment");
     }
 
     public LiveData<String> getText() {

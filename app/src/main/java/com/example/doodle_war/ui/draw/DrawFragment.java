@@ -1,4 +1,4 @@
-package com.example.doodle_war.ui.War;
+package com.example.doodle_war.ui.draw;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.doodle_war.R;
 
-public class WarFragment extends Fragment {
+public class DrawFragment extends Fragment {
 
-    private WarViewModel dashboardViewModel;
+    private DrawViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
-                new ViewModelProvider(this).get(WarViewModel.class);
+                new ViewModelProvider(this).get(DrawViewModel.class);
         View root = inflater.inflate(R.layout.fragment_war, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
