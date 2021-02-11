@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_war"
-        android:name="com.example.doodle_war.ui.War.WarFragment"
-        android:label="@string/title_war"
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.doodle_war.ui.war.DashboardFragment"
+        android:label="@string/title_draw"
         tools:layout="@layout/fragment_war" />
 
     <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.example.doodle_war.ui.notifications.SearchFragment"
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.doodle_war.ui.search.NotificationsFragment"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
 </navigation>

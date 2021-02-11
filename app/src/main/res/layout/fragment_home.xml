@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:background="@color/black"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,26 +25,6 @@
                 android:orientation="horizontal"
                 >
                 <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_margin="3dp">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:src="@drawable/challenges"
-                    app:civ_border_color="#000000"
-                    app:civ_border_width="4dp"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="War Is On"
-                    android:gravity="center"
-                    android:textColor="@color/white"
-                    ></TextView>
-            </LinearLayout>
-                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -51,7 +32,7 @@
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/challenges"
+                        android:src="@drawable/logowithback"
                         app:civ_border_color="#000000"
                         app:civ_border_width="4dp"
                         />
@@ -71,7 +52,8 @@
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/challenges"
+                        android:background="@color/black"
+                        android:src="@drawable/logowithback"
                         app:civ_border_color="#000000"
                         app:civ_border_width="4dp"
                         />
@@ -91,7 +73,7 @@
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/challenges"
+                        android:src="@drawable/logowithback"
                         app:civ_border_color="#000000"
                         app:civ_border_width="4dp"
                         />
@@ -111,7 +93,7 @@
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/challenges"
+                        android:src="@drawable/logowithback"
                         app:civ_border_color="#000000"
                         app:civ_border_width="4dp"
                         />
@@ -131,7 +113,7 @@
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/challenges"
+                        android:src="@drawable/logowithback"
                         app:civ_border_color="#000000"
                         app:civ_border_width="4dp"
                         />
@@ -151,7 +133,7 @@
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/challenges"
+                        android:src="@drawable/logowithback"
                         app:civ_border_color="#000000"
                         app:civ_border_width="4dp"
                         />
@@ -171,7 +153,27 @@
                     <com.mikhaellopez.circularimageview.CircularImageView
                         android:layout_width="90dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/challenges"
+                        android:src="@drawable/logowithback"
+                        app:civ_border_color="#000000"
+                        app:civ_border_width="4dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="War Is On"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        ></TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="3dp">
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:src="@drawable/logowithback"
                         app:civ_border_color="#000000"
                         app:civ_border_width="4dp"
                         />
@@ -186,11 +188,12 @@
             </LinearLayout>
         </HorizontalScrollView>
     </LinearLayout>
-    
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv"
+
         ></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
