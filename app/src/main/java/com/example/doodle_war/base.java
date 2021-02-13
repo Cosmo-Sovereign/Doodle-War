@@ -9,15 +9,33 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class base extends AppCompatActivity {
-    ImageView iv;
+
+    private DrawerLayout drawer;
+    private NavigationView nav_draw;
+    private ActionBarDrawerToggle toggle;
+    private Toolbar toolbar;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return true;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,20 +46,43 @@ public class base extends AppCompatActivity {
         // menu should be considered as top level destinations.
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
-        iv=findViewById(R.id.profileimg);
-        iv.setOnClickListener(new View.OnClickListener() {
+
+        //Drawer Layout
+        drawer=findViewById(R.id.drawer);
+        nav_draw=findViewById(R.id.nav_draw);
+        toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toggle=new ActionBarDrawerToggle(this,drawer,R.string.open,R.string.close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.mani);
+
+        nav_draw.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu=new PopupMenu(base.this,iv);
-                popupMenu.getMenuInflater().inflate(R.menu.show_menu,popupMenu.getMenu());
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        Toast.makeText(base.this, ""+item.getTitle(), Toast.LENGTH_SHORT).show();
-                        return true;
-                    }
-                });
-                popupMenu.show();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId())
+                {
+                    case R.id.profile:
+                        Toast.makeText(base.this, "Profile", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.sitting:
+                        Toast.makeText(base.this, "sitting", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.help:
+                        Toast.makeText(base.this, "Help", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.feedback:
+                        Toast.makeText(base.this, "Feedback", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.logout:
+                        Toast.makeText(base.this, "Logout", Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+                return true;
             }
         });
 

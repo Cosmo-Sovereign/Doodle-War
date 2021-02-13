@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
         rv=view.findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         dataholder=new ArrayList<>();
-        DataModel ob1=new DataModel(R.drawable.parasprofile,R.drawable.d1,"Paras");
+        DataModel ob1=new DataModel(R.drawable.parasprofile,R.drawable.d6,"Paras");
         dataholder.add(ob1);
         DataModel ob2=new DataModel(R.drawable.pradyumnprojile,R.drawable.d2,"Pradyumn");
         dataholder.add(ob2);
@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         dataholder.add(ob4);
         DataModel ob5=new DataModel(R.drawable.parasprofile,R.drawable.d5,"Paras");
         dataholder.add(ob5);
-        DataModel ob6=new DataModel(R.drawable.pradyumnprojile,R.drawable.d6,"Pradyumn");
+        DataModel ob6=new DataModel(R.drawable.pradyumnprojile,R.drawable.d1,"Pradyumn");
         dataholder.add(ob6);
         //String data[]={"C++","Java","Python","C"};
         rv.setAdapter(new MyAdapter(dataholder));
