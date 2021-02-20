@@ -19,14 +19,14 @@
                 android:layout_height="116dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/minePic" />
+                android:src="@drawable/man" />
 
             <TextView
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pradyumn Singh"
+                android:text="User Name"
                 android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="21sp"/>
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Hello I am pradyumn Singh and this is my final year project"
+                android:text="Hello We are 4th year Students and this is our final year project"
                 android:textColor="@color/black"
                 android:textStyle="italic"
                 android:textSize="13sp"></TextView>
@@ -114,7 +114,6 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </RelativeLayout>
 
     <GridView
