@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".setting">
+    <LinearLayout
+        android:id="@+id/headingll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="Setting"
+            android:gravity="center"
+            android:textColor="@color/white"
+            ></TextView>
+    </LinearLayout>
+    <TextView
+        android:layout_below="@+id/headingll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Password Setting"
+        android:textSize="20dp"
+        android:padding="5dp"
+        android:id="@+id/passsitting"
+        ></TextView>
+    <TextView
+        android:padding="5dp"
+        android:layout_below="@+id/passsitting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Privacy Setting"
+        android:textSize="20dp"
+        ></TextView>
+</RelativeLayout>

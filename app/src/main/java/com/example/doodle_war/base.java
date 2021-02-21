@@ -1,5 +1,6 @@
 package com.example.doodle_war;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -66,13 +67,16 @@ public class base extends AppCompatActivity {
                         Toast.makeText(base.this, "Profile", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.sitting:
-                        Toast.makeText(base.this, "sitting", Toast.LENGTH_SHORT).show();
+                        Intent in2=new Intent(base.this,setting.class);
+                        startActivity(in2);
                         break;
                     case R.id.help:
-                        Toast.makeText(base.this, "Help", Toast.LENGTH_SHORT).show();
+                        Intent in3=new Intent(base.this,help.class);
+                        startActivity(in3);
                         break;
                     case R.id.feedback:
-                        Toast.makeText(base.this, "Feedback", Toast.LENGTH_SHORT).show();
+                        Intent in4=new Intent(base.this,feedback.class);
+                        startActivity(in4);
                         break;
                     case R.id.logout:
                         Toast.makeText(base.this, "Logout", Toast.LENGTH_SHORT).show();

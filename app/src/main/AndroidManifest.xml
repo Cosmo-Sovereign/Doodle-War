@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Doodle_War">
+        <activity android:name=".setting"></activity>
+        <activity android:name=".help" />
+        <activity android:name=".feedback" />
         <activity
             android:name=".base"
-            android:label="@string/title_activity_base"></activity>
+            android:label="@string/title_activity_base" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
