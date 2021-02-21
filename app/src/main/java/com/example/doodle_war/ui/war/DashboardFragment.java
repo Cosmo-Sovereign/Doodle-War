@@ -12,24 +12,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.doodle_war.BrushView;
 import com.example.doodle_war.R;
 
 public class DashboardFragment extends Fragment {
+    BrushView brushView;
+    public DashboardFragment(){
 
-    private DashboardViewModel dashboardViewModel;
-
+    }
+    public static DashboardFragment getInstance(){
+        DashboardFragment fragment = new DashboardFragment();
+        fragment.setRetainInstance(true);
+        return fragment;
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_war, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }
