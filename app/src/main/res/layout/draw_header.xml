@@ -10,14 +10,14 @@
     <com.mikhaellopez.circularimageview.CircularImageView
     android:layout_width="150dp"
     android:layout_height="150dp"
-    android:src="@drawable/parasprofile"
+    android:src="@drawable/man"
     app:civ_border_color="#000000"
     app:civ_border_width="4dp"
     />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paras Sankhyadhar"
+        android:text="Username"
         android:textColor="@color/white"
         android:padding="10dp"
         android:textSize="20dp"
