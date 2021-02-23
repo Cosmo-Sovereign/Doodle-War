@@ -61,7 +61,8 @@ public class base extends AppCompatActivity {
                 switch (item.getItemId())
                 {
                     case R.id.profile:
-                        Toast.makeText(base.this, "Profile", Toast.LENGTH_SHORT).show();
+                        Intent in1=new Intent(base.this, profile.class);
+                        startActivity(in1);
                         break;
                     case R.id.setting:
                         Intent in2=new Intent(base.this, setting.class);
