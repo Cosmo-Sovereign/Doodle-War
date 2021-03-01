@@ -3,6 +3,8 @@ package com.example.doodle_war;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -19,6 +21,7 @@ import androidx.navigation.ui.NavigationUI;
 
 public class base extends AppCompatActivity {
 
+    ImageView draw;
     private DrawerLayout drawer;
     private NavigationView nav_draw;
     private ActionBarDrawerToggle toggle;
@@ -82,6 +85,16 @@ public class base extends AppCompatActivity {
 
                 }
                 return true;
+            }
+        });
+
+        //Draw
+        draw=findViewById(R.id.draw);
+        draw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(base.this,PaintView.class);
+                startActivity(in);
             }
         });
 

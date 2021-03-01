@@ -36,10 +36,10 @@
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/logoinvert"
+                android:src="@drawable/pencil"
                 android:layout_weight=".5"
                 android:padding="5dp"
-                android:id="@+id/profileimg"
+                android:id="@+id/draw"
                 ></ImageView>
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
