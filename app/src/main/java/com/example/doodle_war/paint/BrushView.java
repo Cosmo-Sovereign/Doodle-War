@@ -1,4 +1,4 @@
-package com.example.doodle_war;
+package com.example.doodle_war.paint;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -14,8 +14,8 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-import static com.example.doodle_war.PaintView.paint_brush;
-import static com.example.doodle_war.PaintView.path;
+import static com.example.doodle_war.paint.PaintView.paint_brush;
+import static com.example.doodle_war.paint.PaintView.path;
 
 public class BrushView extends View {
 

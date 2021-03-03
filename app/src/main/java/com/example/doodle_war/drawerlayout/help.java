@@ -1,8 +1,10 @@
-package com.example.doodle_war;
+package com.example.doodle_war.drawerlayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.doodle_war.R;
 
 public class help extends AppCompatActivity {
 

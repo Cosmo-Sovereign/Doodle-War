@@ -1,4 +1,4 @@
-package com.example.doodle_war;
+package com.example.doodle_war.paint;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.doodle_war.R;
 
 import static com.example.doodle_war.paint.BrushView.colorlist;
 import static com.example.doodle_war.paint.BrushView.current_brush;

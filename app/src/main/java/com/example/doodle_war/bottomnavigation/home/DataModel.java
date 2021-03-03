@@ -1,4 +1,4 @@
-package com.example.doodle_war.ui.home;
+package com.example.doodle_war.bottomnavigation.home;
 
 public class DataModel {
     int propic,post;

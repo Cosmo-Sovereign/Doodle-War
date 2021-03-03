@@ -9,17 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Doodle_War">
-        <activity android:name=".PaintView"></activity>
-        <activity android:name=".profile" />
+        <activity android:name=".paint.PaintView"></activity>
+        <activity android:name=".drawerlayout.profile" />
         <activity android:name=".profile_activity" />
-        <activity android:name=".help" />
-        <activity android:name=".setting" />
-        <activity android:name=".feedback" />
+        <activity android:name=".drawerlayout.help" />
+        <activity android:name=".drawerlayout.setting" />
+        <activity android:name=".drawerlayout.feedback" />
         <activity
             android:name=".base"
             android:label="@string/title_activity_base" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".bottomnavigation.login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".MainActivity">
             <intent-filter>

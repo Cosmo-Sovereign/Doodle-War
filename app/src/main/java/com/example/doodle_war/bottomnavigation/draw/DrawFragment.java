@@ -1,4 +1,4 @@
-package com.example.doodle_war.ui.draw;
+package com.example.doodle_war.bottomnavigation.draw;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

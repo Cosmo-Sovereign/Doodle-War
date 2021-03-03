@@ -1,4 +1,4 @@
-package com.example.doodle_war.ui.search;
+package com.example.doodle_war.bottomnavigation.search;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

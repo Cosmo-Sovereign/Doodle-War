@@ -1,4 +1,4 @@
-package com.example.doodle_war.ui.search;
+package com.example.doodle_war.bottomnavigation.search;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
