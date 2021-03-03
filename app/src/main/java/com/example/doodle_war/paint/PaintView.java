@@ -8,9 +8,9 @@ import android.graphics.Path;
 import android.os.Bundle;
 import android.view.View;
 
-import static com.example.doodle_war.BrushView.colorlist;
-import static com.example.doodle_war.BrushView.current_brush;
-import static com.example.doodle_war.BrushView.pathlist;
+import static com.example.doodle_war.paint.BrushView.colorlist;
+import static com.example.doodle_war.paint.BrushView.current_brush;
+import static com.example.doodle_war.paint.BrushView.pathlist;
 
 public class PaintView extends AppCompatActivity {
 
