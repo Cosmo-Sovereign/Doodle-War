@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feedback"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/headingll"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feedback"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:padding="5dp"
+            ></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/desll"
+        android:layout_below="@+id/headingll">
+        <TextView
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We are glade by having your feedback. It is valuable for us."
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            ></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subll"
+        android:layout_below="@+id/desll"
+        android:orientation="horizontal">
+        <TextView
+            android:padding="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subject: "
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            ></TextView>
+        <EditText
+            android:padding="4dp"
+            android:id="@+id/et_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            ></EditText>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subll"
+        android:hint="write feedback"
+        android:lines="10"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="#919090"
+        android:gravity="start|top"
+        android:textSize="20dp"></EditText>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_msg"
+        android:gravity="right"
+        android:padding="5dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/send"
+            android:text="send"
+            android:layout_marginRight="10dp"
+            android:textSize="10dp"
+            ></Button>
+    </LinearLayout>
+</RelativeLayout>

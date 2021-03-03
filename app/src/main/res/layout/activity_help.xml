@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".help"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:id="@+id/headingll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="Help"
+            android:gravity="center"
+            android:textColor="@color/white"
+            ></TextView>
+    </LinearLayout>
+    <TextView
+        android:layout_below="@+id/headingll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="In today’s world we all are competing with each other whether that be in world of sports or education but we don’t have a good platform where we can compete with our creativity. In the world of digitalization we should also have a place where people can compete on their creativity level. So we are taking an initiative by providing that platform through our application. Doodle war is a digital app where people can make a group of friends and challenge each other in doodling the photo submitted as a subject. Challenges can be both in open or closed group. Further, sharing we can share doodles globally with everyone and the top posts trend on top and can be shared across social media."
+        android:textSize="20dp"
+        android:padding="5dp"
+        android:id="@+id/passsitting"
+        ></TextView>
+</RelativeLayout>
