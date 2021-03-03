@@ -1,4 +1,4 @@
-package com.example.doodle_war;
+package com.example.doodle_war.drawerlayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.doodle_war.R;
 
 public class feedback extends AppCompatActivity {
     private EditText et_sub, et_msg;

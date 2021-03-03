@@ -1,4 +1,4 @@
-package com.example.doodle_war.ui.home;
+package com.example.doodle_war.bottomnavigation.home;
 
 import android.view.LayoutInflater;
 import android.view.View;
