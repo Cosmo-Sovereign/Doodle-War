@@ -24,6 +24,7 @@ import androidx.navigation.ui.NavigationUI;
 
 public class base extends AppCompatActivity {
 
+    ImageView draw;
     private DrawerLayout drawer;
     private NavigationView nav_draw;
     private ActionBarDrawerToggle toggle;
@@ -86,6 +87,16 @@ public class base extends AppCompatActivity {
                 return true;
             }
         });
+        //draw
+        draw=findViewById(R.id.draw);
+        draw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(base.this,PaintView.class);
+                startActivity(in);
+            }
+        });
+
     }
 
 }
