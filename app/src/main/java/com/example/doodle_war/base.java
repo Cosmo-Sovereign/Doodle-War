@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.Toast;
 
+import com.example.doodle_war.drawerlayout.feedback;
+import com.example.doodle_war.drawerlayout.help;
+import com.example.doodle_war.drawerlayout.profile;
+import com.example.doodle_war.drawerlayout.setting;
+import com.example.doodle_war.paint.PaintView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -19,7 +22,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class base extends AppCompatActivity {
@@ -69,15 +71,15 @@ public class base extends AppCompatActivity {
                         startActivity(in1);
                         break;
                     case R.id.sitting:
-                        Intent in2=new Intent(base.this,setting.class);
+                        Intent in2=new Intent(base.this, setting.class);
                         startActivity(in2);
                         break;
                     case R.id.help:
-                        Intent in3=new Intent(base.this,help.class);
+                        Intent in3=new Intent(base.this, help.class);
                         startActivity(in3);
                         break;
                     case R.id.feedback:
-                        Intent in4=new Intent(base.this,feedback.class);
+                        Intent in4=new Intent(base.this, feedback.class);
                         startActivity(in4);
                         break;
                     case R.id.logout:
@@ -92,7 +94,7 @@ public class base extends AppCompatActivity {
         draw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(base.this,PaintView.class);
+                Intent in=new Intent(base.this, PaintView.class);
                 startActivity(in);
             }
         });
