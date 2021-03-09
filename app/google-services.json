@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "519986578551",
+    "project_id": "doodle-war-master",
+    "storage_bucket": "doodle-war-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519986578551:android:94986246158ff57eedf272",
+        "android_client_info": {
+          "package_name": "com.example.doodle_war"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519986578551-bat3lm52clcp1vjrarfpqa7pt1mbr2ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9AIyejQ1f0l9haZCJObiIVneUbKLpCbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519986578551-bat3lm52clcp1vjrarfpqa7pt1mbr2ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
