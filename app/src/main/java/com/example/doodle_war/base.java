@@ -14,6 +14,8 @@ import com.example.doodle_war.drawerlayout.setting;
 import com.example.doodle_war.paint.PaintView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -23,6 +25,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+import com.example.doodle_war.login.login_activity;
 
 public class base extends AppCompatActivity {
 
@@ -31,7 +34,9 @@ public class base extends AppCompatActivity {
     private NavigationView nav_draw;
     private ActionBarDrawerToggle toggle;
     private Toolbar toolbar;
+    private FirebaseAuth firebaseAuth;
 
+    //toggle
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(toggle.onOptionsItemSelected(item)) {
@@ -40,10 +45,26 @@ public class base extends AppCompatActivity {
         return true;
     }
 
+    //To check that user has login in application or not
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser current_user=firebaseAuth.getCurrentUser();
+        if(current_user == null)
+        {
+            Intent in=new Intent(base.this,login_activity.class);
+            in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(in);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+        firebaseAuth= FirebaseAuth.getInstance();
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because
         // each

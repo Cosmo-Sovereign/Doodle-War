@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Doodle_War">
-        <activity android:name=".paint.PaintView"></activity>
+        <activity android:name=".login.user_registration"></activity>
+        <activity android:name=".login.login_activity" />
+        <activity android:name=".paint.PaintView" />
         <activity android:name=".drawerlayout.profile" />
         <activity android:name=".drawerlayout.setting" />
         <activity android:name=".drawerlayout.help" />
