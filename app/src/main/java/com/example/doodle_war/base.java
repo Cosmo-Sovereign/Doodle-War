@@ -105,6 +105,11 @@ public class base extends AppCompatActivity {
                         break;
                     case R.id.logout:
                         Toast.makeText(base.this, "Logout", Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        Intent in=new Intent(base.this,login_activity.class);
+                        in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(in);
+                        finish();
                         break;
                 }
                 return true;
