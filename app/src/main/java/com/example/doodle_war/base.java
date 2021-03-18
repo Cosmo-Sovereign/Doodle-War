@@ -11,6 +11,7 @@ import com.example.doodle_war.drawerlayout.feedback;
 import com.example.doodle_war.drawerlayout.help;
 import com.example.doodle_war.drawerlayout.profile;
 import com.example.doodle_war.drawerlayout.setting;
+import com.example.doodle_war.login.SetupActivity;
 import com.example.doodle_war.paint.PaintView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -26,6 +27,11 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import com.example.doodle_war.login.login_activity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class base extends AppCompatActivity {
 
@@ -35,11 +41,12 @@ public class base extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private Toolbar toolbar;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference userRef;
 
     //toggle
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(toggle.onOptionsItemSelected(item)) {
+        if (toggle.onOptionsItemSelected(item)) {
             return true;
         }
         return true;
@@ -50,13 +57,19 @@ public class base extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser current_user=firebaseAuth.getCurrentUser();
+
         if(current_user == null)
         {
             Intent in=new Intent(base.this,login_activity.class);
             in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(in);
         }
+        else
+        {
+            CheckUserExistence();
+        }
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +77,7 @@ public class base extends AppCompatActivity {
         setContentView(R.layout.activity_base);
 
         firebaseAuth= FirebaseAuth.getInstance();
+        userRef = FirebaseDatabase.getInstance().getReference().child("Users");
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because
@@ -104,7 +118,12 @@ public class base extends AppCompatActivity {
                         startActivity(in4);
                         break;
                     case R.id.logout:
-                        Toast.makeText(base.this, "Logout", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(base.this, "Logged Out", Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        Intent in=new Intent(base.this,login_activity.class);
+                        in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(in);
+                        finish();
                         break;
                 }
                 return true;
@@ -120,6 +139,31 @@ public class base extends AppCompatActivity {
             }
         });
 
+    }
+    private void CheckUserExistence() {
+        final String current_user_id = firebaseAuth.getCurrentUser().getUid();
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (!snapshot.hasChild(current_user_id))
+                {
+                    sendUserToSetupActivity();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void sendUserToSetupActivity() {
+        Intent SetupIn=new Intent(base.this, SetupActivity.class);
+        SetupIn.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(SetupIn);
+        finish();
     }
 
 }
