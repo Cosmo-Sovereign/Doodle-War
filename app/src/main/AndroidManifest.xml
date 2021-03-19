@@ -15,7 +15,13 @@
         android:theme="@style/Theme.Doodle_War">
         <activity android:name=".login.SetupActivity"></activity>
         <activity android:name=".login.user_registration" />
-        <activity android:name=".login.login_activity" />
+        <activity android:name=".login.login_activity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".paint.PaintView" />
         <activity android:name=".drawerlayout.profile" />
         <activity android:name=".drawerlayout.setting" />
@@ -28,11 +34,6 @@
             android:name=".bottomnavigation.login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.canhub.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat"/>

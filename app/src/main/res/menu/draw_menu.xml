@@ -9,7 +9,7 @@
         />
 
     <item
-        android:title="Sitting"
+        android:title="Setting"
         android:id="@+id/sitting"
         android:icon="@drawable/ic_baseline_settings_24"
         />

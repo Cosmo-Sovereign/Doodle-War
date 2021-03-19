@@ -2,9 +2,11 @@ package com.example.doodle_war;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doodle_war.drawerlayout.feedback;
@@ -32,6 +34,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 public class base extends AppCompatActivity {
 
@@ -42,6 +46,9 @@ public class base extends AppCompatActivity {
     private Toolbar toolbar;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference userRef;
+    private CircularImageView navHeaderProfileImage;
+    private TextView navHeaderUserName;
+    String currentUserID;
 
     //toggle
     @Override
@@ -78,7 +85,7 @@ public class base extends AppCompatActivity {
 
         firebaseAuth= FirebaseAuth.getInstance();
         userRef = FirebaseDatabase.getInstance().getReference().child("Users");
-
+            currentUserID = firebaseAuth.getCurrentUser().getUid();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because
         // each
@@ -88,6 +95,40 @@ public class base extends AppCompatActivity {
         drawer=findViewById(R.id.drawer);
         nav_draw=findViewById(R.id.nav_draw);
         toolbar=findViewById(R.id.toolbar);
+        View navHeader = nav_draw.inflateHeaderView(R.layout.draw_header);
+        navHeaderProfileImage = navHeader.findViewById(R.id.navProfileImage);
+        navHeaderUserName = navHeader.findViewById(R.id.navUserName);
+        userRef.child(currentUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if(snapshot.exists())
+                {
+                    if(snapshot.hasChild("fullname"))
+                    {
+                        String username = snapshot.child("fullname").getValue().toString();
+                        navHeaderUserName.setText(username);
+                    }
+
+                    if(snapshot.hasChild("profileimage"))
+                    {
+                        String image = snapshot.child("profileimage").getValue().toString();
+                        Picasso.get().load(image).placeholder(R.drawable.man).into(navHeaderProfileImage);
+                    }
+                    else
+                    {
+                        Toast.makeText(base.this,"PRofile doesn't exist",Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         setSupportActionBar(toolbar);
         toggle=new ActionBarDrawerToggle(this,drawer,R.string.open,R.string.close);
         drawer.addDrawerListener(toggle);
@@ -95,6 +136,7 @@ public class base extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.mani);
+
 
         nav_draw.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

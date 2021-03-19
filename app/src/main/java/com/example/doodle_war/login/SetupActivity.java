@@ -91,8 +91,15 @@ public class SetupActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists())
                 {
-                    String image = snapshot.child("profileimage").getValue().toString();
-                    Picasso.get().load(image).placeholder(R.drawable.man).into(ProfileImage);
+                    if(snapshot.hasChild("profileimage"))
+                    {
+                        String image = snapshot.child("profileimage").getValue().toString();
+                        Picasso.get().load(image).placeholder(R.drawable.man).into(ProfileImage);
+                    }
+                    else
+                    {
+                        Toast.makeText(SetupActivity.this,"Please select profile image",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -141,8 +148,8 @@ public class SetupActivity extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful())
                                                 {
-                                                    Intent setupIn = new  Intent(SetupActivity.this,SetupActivity.class);
-                                                    startActivity(setupIn);
+                                                    //Intent setupIn = new  Intent(SetupActivity.this,SetupActivity.class);
+                                                    //startActivity(setupIn);
                                                     Toast.makeText(SetupActivity.this,"Profile Image stored to database Successfully",Toast.LENGTH_SHORT).show();
                                                     loadingBar.dismiss();
                                                 }
