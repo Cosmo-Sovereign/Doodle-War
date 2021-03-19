@@ -4,17 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.storage.StorageManager;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.canhub.cropper.CropImageView;
 import com.example.doodle_war.R;
 import com.example.doodle_war.base;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,9 +30,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
+import com.canhub.cropper.CropImage;
+import com.canhub.cropper.CropImageActivity;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class SetupActivity extends AppCompatActivity {
@@ -41,6 +46,7 @@ public class SetupActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     final static int gallery_pick = 1;
     private StorageReference UserProfileImageRef;
+    Uri ImageURI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,25 +84,31 @@ public class SetupActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==gallery_pick && resultCode==RESULT_OK && data != null)
-        {
-            Uri ImageURI = data.getData();
+        if(requestCode == gallery_pick && resultCode == RESULT_OK && data != null) {
+            ImageURI = data.getData();
             CropImage.activity(ImageURI)
                     .setGuidelines(CropImageView.Guidelines.ON)
-                    .setAspectRatio(1,1)
+                    .setAspectRatio(1, 1)
                     .start(this);
+        }
             if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE)
             {
-
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
 
-                if (requestCode == RESULT_OK)
+                if (resultCode== RESULT_OK)
                 {
                     loadingBar.setTitle("Saving Profile Image");
                     loadingBar.setMessage("Please wait Your Profile Image is Being Saved");
                     loadingBar.show();
                     loadingBar.setCanceledOnTouchOutside(true);
                     Uri resultURI = result.getUri();
+                    /*try{
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),resultURI);
+                        ProfileImage.setImageBitmap(bitmap);
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }*/
                     StorageReference filePath = UserProfileImageRef.child(currentUserID+".jpg");
                     filePath.putFile(resultURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -106,7 +118,8 @@ public class SetupActivity extends AppCompatActivity {
                                 Intent setupIn = new  Intent(SetupActivity.this,SetupActivity.class);
                                 startActivity(setupIn);
                                 Toast.makeText(SetupActivity.this,"Profile Image is Stored Successfully",Toast.LENGTH_SHORT).show();
-                                final String downloadURl = task.getResult().getStorage().getDownloadUrl().toString();
+                                final String downloadURl = task.getResult().getMetadata().getReference().getDownloadUrl().toString();
+                                Toast.makeText(SetupActivity.this,downloadURl,Toast.LENGTH_SHORT).show();
                                 userRef.child("profileimage").setValue(downloadURl)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
@@ -135,7 +148,6 @@ public class SetupActivity extends AppCompatActivity {
                     loadingBar.dismiss();
                 }
             }
-        }
     }
 
     private void SaveAccountInfo() {
