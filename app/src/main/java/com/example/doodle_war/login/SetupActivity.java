@@ -21,17 +21,23 @@ import android.widget.Toast;
 import com.canhub.cropper.CropImageView;
 import com.example.doodle_war.R;
 import com.example.doodle_war.base;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.mikhaellopez.circularimageview.CircularImageView;
 import com.canhub.cropper.CropImage;
 import com.canhub.cropper.CropImageActivity;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -55,7 +61,7 @@ public class SetupActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserID = firebaseAuth.getCurrentUser().getUid();
         userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(currentUserID);
-        UserProfileImageRef = FirebaseStorage.getInstance().getReference().child(" Profile Images");
+        UserProfileImageRef = FirebaseStorage.getInstance().getReference().child("Profile Images");
 
         UserName = (EditText) findViewById(R.id.username);
         FullName = (EditText) findViewById(R.id.FullName);
@@ -79,20 +85,40 @@ public class SetupActivity extends AppCompatActivity {
                 startActivityForResult(galleryIntent,gallery_pick);
             }
         });
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    String image = snapshot.child("profileimage").getValue().toString();
+                    Picasso.get().load(image).placeholder(R.drawable.man).into(ProfileImage);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //conditions for picture
         if(requestCode == gallery_pick && resultCode == RESULT_OK && data != null) {
             ImageURI = data.getData();
+            //crop the image
             CropImage.activity(ImageURI)
                     .setGuidelines(CropImageView.Guidelines.ON)
                     .setAspectRatio(1, 1)
                     .start(this);
         }
+            //get cropped image
             if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE)
             {
+                //store the cropped image into result
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
 
                 if (resultCode== RESULT_OK)
@@ -102,30 +128,21 @@ public class SetupActivity extends AppCompatActivity {
                     loadingBar.show();
                     loadingBar.setCanceledOnTouchOutside(true);
                     Uri resultURI = result.getUri();
-                    /*try{
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),resultURI);
-                        ProfileImage.setImageBitmap(bitmap);
-                    } catch (IOException e)
-                    {
-                        e.printStackTrace();
-                    }*/
-                    StorageReference filePath = UserProfileImageRef.child(currentUserID+".jpg");
-                    filePath.putFile(resultURI).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                    final StorageReference filePath = UserProfileImageRef.child(currentUserID+".jpg");
+                    filePath.putFile(resultURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                            if(task.isSuccessful())
-                            {
-                                Intent setupIn = new  Intent(SetupActivity.this,SetupActivity.class);
-                                startActivity(setupIn);
-                                Toast.makeText(SetupActivity.this,"Profile Image is Stored Successfully",Toast.LENGTH_SHORT).show();
-                                final String downloadURl = task.getResult().getMetadata().getReference().getDownloadUrl().toString();
-                                Toast.makeText(SetupActivity.this,downloadURl,Toast.LENGTH_SHORT).show();
-                                userRef.child("profileimage").setValue(downloadURl)
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        final String downloadURL = uri.toString();
+                                        userRef.child("profileimage").setValue(downloadURL).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful())
                                                 {
+                                                    Intent setupIn = new  Intent(SetupActivity.this,SetupActivity.class);
+                                                    startActivity(setupIn);
                                                     Toast.makeText(SetupActivity.this,"Profile Image stored to database Successfully",Toast.LENGTH_SHORT).show();
                                                     loadingBar.dismiss();
                                                 }
@@ -137,8 +154,9 @@ public class SetupActivity extends AppCompatActivity {
                                                 }
                                             }
                                         });
+                                    }
+                                });
                         }
-                    }
                     });
                 }
 
@@ -149,6 +167,8 @@ public class SetupActivity extends AppCompatActivity {
                 }
             }
     }
+
+
 
     private void SaveAccountInfo() {
 
