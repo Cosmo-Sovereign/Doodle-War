@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@color/colorProfile">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/allUsersProfileImage"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/man"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/allUsersProfileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:text="user Full Name"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/allUsersBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:text="Bio"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
