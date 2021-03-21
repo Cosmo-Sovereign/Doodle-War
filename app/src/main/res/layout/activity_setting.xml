@@ -7,39 +7,120 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     tools:context=".drawerlayout.setting">
-    <LinearLayout
-        android:id="@+id/headingll"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/settingToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        >
-        <TextView
+        android:background="@color/design_default_color_primary_dark"
+        app:titleTextColor="@color/black">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="72dp">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="Setting"
-            android:gravity="center"
-            android:textColor="@color/white"
-            ></TextView>
-    </LinearLayout>
-    <TextView
-        android:layout_below="@+id/headingll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="Password Setting"
-        android:textSize="20dp"
-        android:padding="5dp"
-        android:id="@+id/passsitting"
-        ></TextView>
-    <TextView
-        android:padding="5dp"
-        android:layout_below="@+id/passsitting"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="Privacy Setting"
-        android:textSize="20dp"
-        ></TextView>
+            android:layout_height="match_parent">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/settingProfileImage"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/man"/>
+            <EditText
+                android:id="@+id/settingBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/settingProfileImage"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/inputs"
+                android:hint="Bio"
+                android:padding="30dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/settingUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/settingBio"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/inputs"
+                android:hint="UserName"
+                android:padding="12dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/settingUserFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/settingUserName"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/inputs"
+                android:hint="Full Name"
+                android:padding="12dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/settingUserDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/settingUserFullName"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/inputs"
+                android:hint="Date of Birth"
+                android:padding="12dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <EditText
+                android:id="@+id/settingUserGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/settingUserDOB"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/inputs"
+                android:hint="Gender"
+                android:padding="12dp"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+            <Button
+                android:id="@+id/settingSaveButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/settingUserGender"
+                android:text="Upadate Account Setting"
+                android:layout_margin="20dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:background="@drawable/button_design"
+                android:backgroundTint="@color/purple_500"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

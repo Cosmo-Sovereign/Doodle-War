@@ -24,7 +24,8 @@
         </activity>
         <activity android:name=".paint.PaintView" />
         <activity android:name=".drawerlayout.profile" />
-        <activity android:name=".drawerlayout.setting" />
+        <activity android:name=".drawerlayout.setting"
+            android:parentActivityName=".base"/>
         <activity android:name=".drawerlayout.help" />
         <activity android:name=".drawerlayout.feedback" />
         <activity

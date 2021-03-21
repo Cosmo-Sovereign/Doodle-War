@@ -132,8 +132,9 @@ public class SetupActivity extends AppCompatActivity {
                 {
                     loadingBar.setTitle("Saving Profile Image");
                     loadingBar.setMessage("Please wait Your Profile Image is Being Saved");
-                    loadingBar.show();
                     loadingBar.setCanceledOnTouchOutside(true);
+                    loadingBar.show();
+
                     Uri resultURI = result.getUri();
                     final StorageReference filePath = UserProfileImageRef.child(currentUserID+".jpg");
                     filePath.putFile(resultURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
