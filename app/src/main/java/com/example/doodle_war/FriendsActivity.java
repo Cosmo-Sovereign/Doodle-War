@@ -56,7 +56,7 @@ public class FriendsActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull FriendsViewHolder holder, int position, @NonNull Friend model) {
                 String userIDs = getRef(position).getKey();
-                holder.date.setText(model.getDate());
+                holder.date.setText("Friends since: "+model.getDate());
                 UsersRef.child(userIDs).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
