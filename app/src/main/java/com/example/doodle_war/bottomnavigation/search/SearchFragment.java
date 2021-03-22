@@ -33,12 +33,12 @@ import com.squareup.picasso.Picasso;
 public class SearchFragment extends Fragment {
 
     private SearchViewModel notificationsViewModel;
-    private Toolbar toolbar;
     private ImageButton SearchButton;
     private EditText SearchInputText;
     private RecyclerView searchResultList;
     private DatabaseReference allUsersDatabaseRef;
     String searchBoxInput;
+    FirebaseRecyclerAdapter<FindFriends,FindFriendViewHolder> firebaseRecyclerAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class SearchFragment extends Fragment {
             public void onClick(View view) {
                 searchBoxInput = SearchInputText.getText().toString();
                 Toast.makeText(getContext(),"Searching.... ",Toast.LENGTH_SHORT).show();
+
                 SearchPeopleAndFriend(searchBoxInput);
             }
         });
@@ -66,24 +67,22 @@ public class SearchFragment extends Fragment {
     }
 
     private void SearchPeopleAndFriend(String searchBoxInput) {
-    }
-
-    @Override
-    public void onStart() {
         Query searchPeopleAndFriendsQuery = allUsersDatabaseRef.orderByChild("fullname")
                 .startAt(searchBoxInput).endAt(searchBoxInput + "\uf8ff");
-        super.onStart();
+
 
 
 
         FirebaseRecyclerOptions<FindFriends> options = new FirebaseRecyclerOptions.Builder<FindFriends>().setQuery(searchPeopleAndFriendsQuery,FindFriends.class).build();
-        FirebaseRecyclerAdapter<FindFriends,FindFriendViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<FindFriends, FindFriendViewHolder>(options) {
+        firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<FindFriends, FindFriendViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull FindFriendViewHolder holder, int position, @NonNull FindFriends model)
             {
+
                 holder.userName.setText(model.getFullname());
                 holder.userBio.setText(model.getBio());
                 Picasso.get().load(model.getProfileimage()).placeholder(R.drawable.man).into(holder.profileImage);
+
             }
 
             @NonNull
@@ -98,7 +97,7 @@ public class SearchFragment extends Fragment {
         searchResultList.setAdapter(firebaseRecyclerAdapter);
         firebaseRecyclerAdapter.startListening();
     }
-
+    
 
     public static class FindFriendViewHolder extends RecyclerView.ViewHolder
     {
