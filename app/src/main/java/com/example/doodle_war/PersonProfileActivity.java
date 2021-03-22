@@ -142,7 +142,7 @@ public class PersonProfileActivity extends AppCompatActivity {
     private void AcceptFriendRequest()
     {
         Calendar callForDate = Calendar.getInstance();
-        SimpleDateFormat currentDate = new SimpleDateFormat("dd--MMMM-yyyy");
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
         saveCurrentDate = currentDate.format(callForDate.getTime());
 
         FriendsRef.child(senderUserID).child(receiverUserID).child("date").setValue(saveCurrentDate)

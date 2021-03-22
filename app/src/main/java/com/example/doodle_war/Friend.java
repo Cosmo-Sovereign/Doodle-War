@@ -1,0 +1,22 @@
+package com.example.doodle_war;
+
+public class Friend
+{
+    public String date;
+    public Friend()
+    {
+
+    }
+
+    public Friend(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+}

@@ -7,6 +7,10 @@
         android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person_24"
         />
+    <item
+        android:title="Friends"
+        android:id="@+id/friends"
+        android:icon="@drawable/friends"/>
 
     <item
         android:title="Setting"

@@ -147,18 +147,27 @@ public class base extends AppCompatActivity {
                         Intent in1=new Intent(base.this, profile.class);
                         startActivity(in1);
                         break;
+
+                    case R.id.friends:
+                        Intent intent = new Intent(base.this,FriendsActivity.class);
+                        startActivity(intent);
+                        break;
+
                     case R.id.sitting:
                         Intent in2=new Intent(base.this, setting.class);
                         startActivity(in2);
                         break;
+
                     case R.id.help:
                         Intent in3=new Intent(base.this, help.class);
                         startActivity(in3);
                         break;
+
                     case R.id.feedback:
                         Intent in4=new Intent(base.this, feedback.class);
                         startActivity(in4);
                         break;
+
                     case R.id.logout:
                         Toast.makeText(base.this, "Logged Out", Toast.LENGTH_SHORT).show();
                         firebaseAuth.signOut();
