@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorProfile"
+    tools:context=".PersonProfileActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/person_profile_pic"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/man"/>
+            <TextView
+                android:id="@+id/person_full_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Full Name"
+                android:layout_below="@+id/person_profile_pic"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/person_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:layout_below="@+id/person_full_name"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                />
+            <TextView
+                android:id="@+id/person_profile_bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I am a programmer and this is my final year project"
+                android:layout_below="@+id/person_username"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/graylight"
+                android:layout_marginTop="5dp"
+                android:textSize="22sp"
+                />
+            <TextView
+                android:id="@+id/person_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="10-10-1999"
+                android:layout_below="@+id/person_profile_bio"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:layout_marginTop="5dp"
+                android:textSize="18sp"
+                />
+
+            <Button
+                android:id="@+id/person_send_friend_request_button"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/person_dob"
+                android:layout_marginTop="45dp"
+                android:background="@color/colorGreen"
+                android:text="Send Friend Request"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                />
+            <Button
+                android:id="@+id/person_decline_friend_request_button"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/person_send_friend_request_button"
+                android:layout_marginTop="9dp"
+                android:background="@color/colorRed"
+                android:text="Decline Friend Request"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

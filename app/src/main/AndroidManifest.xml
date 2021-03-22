@@ -15,8 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Doodle_War">
-        <activity android:name=".login.ForgotPasswordActivity"
-            android:parentActivityName=".login.login_activity"></activity>
+        <activity android:name=".PersonProfileActivity"></activity>
+        <activity
+            android:name=".login.ForgotPasswordActivity"
+            android:parentActivityName=".login.login_activity" />
         <activity android:name=".login.SetupActivity" />
         <activity android:name=".login.user_registration" />
         <activity android:name=".login.login_activity">
@@ -39,7 +41,7 @@
         <activity
             android:name=".bottomnavigation.login.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name="com.canhub.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />

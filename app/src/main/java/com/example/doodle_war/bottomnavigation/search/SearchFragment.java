@@ -1,5 +1,6 @@
 package com.example.doodle_war.bottomnavigation.search;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doodle_war.FindFriends;
+import com.example.doodle_war.PersonProfileActivity;
 import com.example.doodle_war.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -82,6 +84,16 @@ public class SearchFragment extends Fragment {
                 holder.userName.setText(model.getFullname());
                 holder.userBio.setText(model.getBio());
                 Picasso.get().load(model.getProfileimage()).placeholder(R.drawable.man).into(holder.profileImage);
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String visit_user_id = getRef(position).getKey();
+                        Intent profileIntent = new Intent(getContext(), PersonProfileActivity.class);
+                        profileIntent.putExtra("visit_user_id",visit_user_id);
+                        startActivity(profileIntent);
+                    }
+                });
 
             }
 
