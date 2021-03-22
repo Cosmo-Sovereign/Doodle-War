@@ -10,8 +10,8 @@
     <com.mikhaellopez.circularimageview.CircularImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:src="@drawable/man"
         android:id="@+id/navProfileImage"
-        android:src="@drawable/parasprofile"
         app:civ_border_color="#000000"
         app:civ_border_width="4dp"
         />

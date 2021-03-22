@@ -41,6 +41,13 @@ public class login_activity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         loadingBar =  new ProgressDialog(this);
 
+        ForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(login_activity.this,ForgotPasswordActivity.class));
+            }
+        });
+
         //Go to user registration
         NewUser.setOnClickListener(new View.OnClickListener() {
             @Override

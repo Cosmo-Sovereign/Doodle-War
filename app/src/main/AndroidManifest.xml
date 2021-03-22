@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.doodle_war">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
 
     <application
@@ -13,9 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Doodle_War">
-        <activity android:name=".login.SetupActivity"></activity>
+        <activity android:name=".login.ForgotPasswordActivity"
+            android:parentActivityName=".login.login_activity"></activity>
+        <activity android:name=".login.SetupActivity" />
         <activity android:name=".login.user_registration" />
-        <activity android:name=".login.login_activity" >
+        <activity android:name=".login.login_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,8 +28,9 @@
         </activity>
         <activity android:name=".paint.PaintView" />
         <activity android:name=".drawerlayout.profile" />
-        <activity android:name=".drawerlayout.setting"
-            android:parentActivityName=".base"/>
+        <activity
+            android:name=".drawerlayout.setting"
+            android:parentActivityName=".base" />
         <activity android:name=".drawerlayout.help" />
         <activity android:name=".drawerlayout.feedback" />
         <activity
@@ -34,10 +39,10 @@
         <activity
             android:name=".bottomnavigation.login.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name="com.canhub.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/>
+        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>
