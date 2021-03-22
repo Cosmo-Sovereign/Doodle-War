@@ -10,4 +10,8 @@
     <color name="graylight">#FaFaFa</color>
     <color name="startblue">#09c6dF</color>
     <color name="endblue">#0bcce6</color>
+    <color name="colorProfile">#3B4041</color>
+    <color name="colorHint">#808080</color>
+    <color name="colorGreen">#31B10D</color>
+    <color name="colorRed">#BC1B1B</color>
 </resources>

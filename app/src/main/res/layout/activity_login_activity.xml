@@ -32,7 +32,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/white"
+        android:background="@drawable/inputs"
         android:textColorHint="@color/black"
         android:drawableLeft="@drawable/ic_action_user"
         android:hint="@string/prompt_email"
@@ -51,7 +51,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/white"
+        android:background="@drawable/inputs"
         android:textSize="20dp"
         android:textColor="@color/black"
         android:hint="@string/prompt_password"
@@ -77,8 +77,8 @@
         android:layout_marginBottom="64dp"
         android:background="@drawable/button_design"
         android:backgroundTint="@color/purple_500"
-        android:enabled="false"
-        android:text="Lognin"
+        android:text="Log In"
+        android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +106,8 @@
             android:layout_weight="1"
             android:text="New User ?"
             android:textColor="@color/white"
-            android:textSize="17dp" />
+            android:textSize="17dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/forgotpassword"
@@ -117,6 +118,7 @@
             android:text="Forgot Password ?"
             android:textColor="@color/white"
             android:textSize="17dp"
+            android:textStyle="bold"
 
             />
     </LinearLayout>
