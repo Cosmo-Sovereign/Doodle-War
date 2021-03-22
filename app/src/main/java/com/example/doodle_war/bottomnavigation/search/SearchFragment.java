@@ -97,7 +97,7 @@ public class SearchFragment extends Fragment {
         searchResultList.setAdapter(firebaseRecyclerAdapter);
         firebaseRecyclerAdapter.startListening();
     }
-    
+
 
     public static class FindFriendViewHolder extends RecyclerView.ViewHolder
     {

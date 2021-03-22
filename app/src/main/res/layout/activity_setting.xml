@@ -47,6 +47,7 @@
                 android:background="@drawable/inputs"
                 android:hint="Bio"
                 android:padding="30dp"
+                android:textColorHint="@color/colorHint"
                 android:textColor="@android:color/background_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
@@ -59,6 +60,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/inputs"
+                android:textColorHint="@color/colorHint"
                 android:hint="UserName"
                 android:padding="12dp"
                 android:textColor="@android:color/background_dark"
@@ -75,6 +77,7 @@
                 android:background="@drawable/inputs"
                 android:hint="Full Name"
                 android:padding="12dp"
+                android:textColorHint="@color/colorHint"
                 android:textColor="@android:color/background_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
@@ -88,6 +91,7 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/inputs"
                 android:hint="Date of Birth"
+                android:textColorHint="@color/colorHint"
                 android:padding="12dp"
                 android:textColor="@android:color/background_dark"
                 android:textSize="20sp"
@@ -103,6 +107,7 @@
                 android:background="@drawable/inputs"
                 android:hint="Gender"
                 android:padding="12dp"
+                android:textColorHint="@color/colorHint"
                 android:textColor="@android:color/background_dark"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
