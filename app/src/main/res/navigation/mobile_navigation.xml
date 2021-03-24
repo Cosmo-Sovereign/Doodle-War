@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.doodle_war.bottomnavigation.draw.DrawFragment"
+        android:name="com.example.doodle_war.bottomnavigation.post.PostFragment"
         android:label="@string/title_draw"
-        tools:layout="@layout/fragment_war" />
+        tools:layout="@layout/fragment_post" />
 
     <fragment
         android:id="@+id/navigation_notifications"
