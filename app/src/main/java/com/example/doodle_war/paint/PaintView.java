@@ -14,6 +14,7 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 import static com.example.doodle_war.paint.BrushView.colorlist;
 import static com.example.doodle_war.paint.BrushView.current_brush;
@@ -39,6 +41,7 @@ public class PaintView extends AppCompatActivity {
     private Button saveDoodleButton;
     private int counter = 0;
     private BrushView mBrushView;
+    private ImageView imageView;
     private final static String TAG = "Main";
     BrushView paintViewLayout;
 
@@ -46,8 +49,10 @@ public class PaintView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         saveDoodleButton = findViewById(R.id.SaveDoodleButton);
-        paintViewLayout = findViewById(R.id.paintViewLayout);
+        paintViewLayout = new BrushView(getApplicationContext(),null);
+        imageView = findViewById(R.id.imageView);
         setContentView(R.layout.activity_paint_view);
+        paintViewLayout.requestFocus();
 
     }
 
@@ -102,17 +107,17 @@ public class PaintView extends AppCompatActivity {
         Canvas canvas = new Canvas(bitmap);
         v.draw(canvas);
 
-//now bitmap has your canvas image
 
 //set it to your ImageView
         //imageView.setImageBitmap(bitmap);
 
 //or save to sdcard
-        String root = Environment.getExternalStorageDirectory().toString();
+        String root = Objects.requireNonNull(getExternalFilesDir(getApplicationContext().toString())).toString();
         File dir = new File(root);
+        Toast.makeText(this,root,Toast.LENGTH_SHORT).show();
         boolean isDirectoryCreated = dir.exists() || dir.mkdirs();
 
-        File outputFile = new File(dir, "image.jpg");
+        File outputFile = new File(dir, "doodle.png");
         OutputStream fout = null;
         try {
             fout = new FileOutputStream(outputFile);

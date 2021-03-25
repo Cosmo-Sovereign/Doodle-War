@@ -1,6 +1,7 @@
 package com.example.doodle_war.paint;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -79,5 +80,13 @@ public class BrushView extends View {
             canvas.drawPath(pathlist.get(i),paint_brush);
             invalidate();
         }
+    }
+    public Bitmap getBitmap() {
+        this.setDrawingCacheEnabled(true);
+        this.buildDrawingCache();
+        Bitmap bmp = Bitmap.createBitmap(this.getDrawingCache());
+        this.setDrawingCacheEnabled(false);
+
+        return bmp;
     }
 }

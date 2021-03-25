@@ -22,8 +22,14 @@
             android:onClick="saveDoodle"
             android:text="Save Doodle" />
         <include
-            layout="@layout/view_display"></include>
+            layout="@layout/view_display"
+            android:id="@+id/paintViewLayout"></include>
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/d2" />
 
 
     </RelativeLayout>
