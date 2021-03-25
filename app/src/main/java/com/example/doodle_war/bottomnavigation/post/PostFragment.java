@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import com.example.doodle_war.R;
 import com.example.doodle_war.base;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -134,12 +135,44 @@ public class PostFragment extends Fragment {
 
         final StorageReference filepath=postimgref.child("Post Images").child(imageuri.getLastPathSegment() + postrandomname + ".jpg");
 
-        filepath.putFile(imageuri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+        filepath.putFile(imageuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                filepath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        final String downloadURL = uri.toString();
+                        postref.child(postrandomname).child("postimage").setValue(downloadURL).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if(task.isSuccessful())
+                                {
+                                    Toast.makeText(getContext(), "img Uploaded", Toast.LENGTH_SHORT).show();
+                                    savingpostinfotodatabase();
+                                }
+                                else
+                                {
+                                    String msg=task.getException().getMessage();
+                                    Toast.makeText(getContext(), "Error Occured " + msg, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                    }
+                });
+
+            }
+        });
+
+
+        /*filepath.putFile(imageuri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+
             @Override
             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                 if(task.isSuccessful())
                 {
-                    downloadurl=task.getResult().getMetadata().getReference().getDownloadUrl().toString();
+                    downloadurl=task.getResult().getStorage().getDownloadUrl().toString();
                     Toast.makeText(getContext(), "img Uploaded", Toast.LENGTH_SHORT).show();
                     savingpostinfotodatabase();
                 }
@@ -149,7 +182,7 @@ public class PostFragment extends Fragment {
                     Toast.makeText(getContext(), "Error Occured " + msg, Toast.LENGTH_SHORT).show();
                 }
             }
-        });
+        });*/
     }
 
     private void savingpostinfotodatabase()
@@ -166,10 +199,9 @@ public class PostFragment extends Fragment {
                     postmap.put("date",savecurrentdate);
                     postmap.put("time",savecurrenttime);
                     postmap.put("description",des);
-                    postmap.put("postimage",downloadurl);
                     postmap.put("profileimage",userprofileimg);
                     postmap.put("fullname",userfullname);
-                    postref.child(current_user_id + postrandomname).updateChildren(postmap).addOnCompleteListener(new OnCompleteListener() {
+                    postref.child(postrandomname).updateChildren(postmap).addOnCompleteListener(new OnCompleteListener() {
                         @Override
                         public void onComplete(@NonNull Task task) {
                           if(task.isSuccessful())
