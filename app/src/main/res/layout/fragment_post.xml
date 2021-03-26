@@ -28,6 +28,7 @@
         android:layout_height="300dp"
         android:src="@drawable/post"
         android:background="@color/white"
+        android:scaleType="centerCrop"
         ></ImageButton>
     <Button
         android:id="@+id/postbutton"
