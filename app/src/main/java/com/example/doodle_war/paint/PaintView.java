@@ -13,6 +13,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.storage.StorageManager;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -222,7 +223,9 @@ public class PaintView extends AppCompatActivity {
         try {
             fos = new FileOutputStream(mypath);
             // Use the compress method on the BitMap object to write image to the OutputStream
-            pikassoView.bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            pikassoView.bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+
+            //MediaStore.Images.Media.insertImage(getApplicationContext().getContentResolver(), String.valueOf(pikassoView.bitmap.compress(Bitmap.CompressFormat.JPEG,250,fos)),filename , filename);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -230,7 +233,7 @@ public class PaintView extends AppCompatActivity {
                 fos.flush();
                 fos.close();
                 Log.d("Image:",directory.toString());
-                Toast message = Toast.makeText(getApplicationContext(),"Doodle Saved: " + directory.toString(),Toast.LENGTH_LONG);
+                Toast message = Toast.makeText(getApplicationContext(),"Doodle Saved: " + mypath.toString(),Toast.LENGTH_LONG);
                 message.setGravity(Gravity.CENTER,message.getXOffset()/2,
                         message.getYOffset()/2);
                 message.show();
