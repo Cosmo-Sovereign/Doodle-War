@@ -15,4 +15,15 @@
     <string name="title_search">Search</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="label_alpha">Alpha</string>
+    <string name="label_red">Red</string>
+    <string name="label_green">Green</string>
+    <string name="label_blue">Blue</string>
+    <string name="set_color">Set Color</string>
+    <string name="set_width">Set Width</string>
+    <string name="Color">color</string>
+    <string name="LineWidth">Line Width</string>
+    <string name="erase">Erase</string>
+    <string name="clear">Clear</string>
+    <string name="Save">Save</string>
 </resources>

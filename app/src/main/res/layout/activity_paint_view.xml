@@ -1,119 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/view1"
     android:layout_height="match_parent"
-    android:background="#ffffff"
     tools:context=".paint.PaintView">
-    <RelativeLayout
-        android:id="@+id/paintll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/tool"
-        >
-        <Button
-            android:id="@+id/SaveDoodleButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="6dp"
-            android:onClick="saveDoodle"
-            android:text="Save Doodle" />
-        <include
-            layout="@layout/view_display"
-            android:id="@+id/paintViewLayout"></include>
-
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/PaintActivityToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tool"
-        android:layout_alignParentBottom="true"
-        >
+        android:background="@color/design_default_color_primary_dark"
+        app:titleTextColor="@color/black">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/tool_design"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints"
-            android:weightSum="7">
+    </androidx.appcompat.widget.Toolbar>
+<com.example.doodle_war.view.PikassoView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/view"
+    android:layout_height="match_parent"
+    tools:context=".paint.PaintView">
 
-            <Button
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginTop="5dp"
-                android:onClick="pencil"
-                android:background="@drawable/ic_baseline_brush_24"
-                ></Button>
-
-            <Button
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/ic_baseline_delete_24"
-                android:onClick="eraser"
-                ></Button>
-
-            <Button
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_design"
-                android:backgroundTint="#FB0303"
-                android:onClick="red"></Button>
-
-            <Button
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_design"
-                android:backgroundTint="#002AFF"
-                android:onClick="blue"></Button>
-
-            <Button
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_design"
-                android:backgroundTint="#FCD303"
-                android:onClick="yellow"></Button>
-
-            <Button
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/button_design"
-                android:backgroundTint="#0AFF00"
-                android:onClick="green"></Button>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_margin="4dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_design"
-                android:backgroundTint="#FF0088"
-                android:onClick="magenta"></Button>
-
-        </LinearLayout>
-    </RelativeLayout>
-
-</RelativeLayout>
+</com.example.doodle_war.view.PikassoView>
+</LinearLayout>
