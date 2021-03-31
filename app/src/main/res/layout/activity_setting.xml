@@ -116,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@+id/settingUserGender"
-                android:text="Upadate Account Setting"
+                android:text="Update Account Setting"
                 android:layout_margin="20dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
