@@ -16,12 +16,12 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:padding="5dp"
         android:id="@+id/ll">
 
     <com.mikhaellopez.circularimageview.CircularImageView
-        android:layout_height="80dp"
-        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:layout_width="70dp"
         android:id="@+id/post_profile_img"
         app:civ_border_width="4dp"
         app:civ_border_color="#000000"
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/post_user_name"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="@color/white"
                 android:text="Paras"
                 android:textStyle="bold"
@@ -54,7 +54,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:id="@+id/time"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"
                     android:text="Time"
                     android:gravity="left"
@@ -64,7 +64,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:id="@+id/date"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:textColor="@color/white"
                     android:text="Date"
                     android:gravity="left"
@@ -80,8 +80,8 @@
         android:layout_below="@+id/ll"
         android:text="Post Description"
         android:textColor="@color/white"
-        android:textSize="15dp"
-        android:padding="15dp" />
+        android:textSize="13dp"
+        android:padding="12dp" />
 
     <ImageView
         android:layout_margin="2dp"
@@ -93,11 +93,34 @@
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         />
-
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/lllike"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/post_img"
+        android:gravity="center"
+        >
+        <ImageButton
+            android:id="@+id/like_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dislike"
+            android:backgroundTint="@color/black"
+            ></ImageButton>
+        <TextView
+            android:id="@+id/like_textview"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 Like"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            ></TextView>
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/post_img"
+        android:layout_below="@+id/lllike"
         android:background="#838080" />
-
 </RelativeLayout>
